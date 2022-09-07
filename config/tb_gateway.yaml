@@ -40,11 +40,10 @@ grpc:
   minTimeBetweenPingsMs: 10000
   minPingIntervalWithoutDataMs: 5000
 connectors:
-  -
-    name: MQTT Broker Connector
-    type: mqtt
-    configuration: mqtt.json
-
+#  -
+#    name: MQTT Broker Connector
+#    type: mqtt
+#    configuration: mqtt.json
 #  -
 #    name: Modbus Connector
 #    type: modbus
@@ -118,11 +117,11 @@ connectors:
 # ========= Customization ==========
 #
 #
-#  -
-#    name: Custom Serial Connector
-#    type: serial
-#    configuration: custom_serial.json
-#    class: CustomSerialConnector
+  -
+    name: Custom Serial Connector
+    type: serial
+    configuration: custom_serial.json
+    class: CustomSerialConnector
 #
 #  -
 #    name: GRPC Connector 1
