@@ -31,19 +31,23 @@ class CustomSerialUplinkConverter(Converter):
             self.result_dict[key] = []
             if self.__config.get(key) is not None:
                 for config_object in self.__config.get(key):
-                    data_to_convert = data
-                    if config_object.get('untilDelimiter') is not None:
-                        data_to_convert = data.split(config_object.get('untilDelimiter').encode('UTF-8'))[0]
-                    if config_object.get('fromDelimiter') is not None:
-                        data_to_convert = data.split(config_object.get('fromDelimiter').encode('UTF-8'))[1]
-                    if config_object.get('toByte') is not None:
-                        to_byte = config_object.get('toByte')
-                        if to_byte == -1:
-                            to_byte = len(data) - 1
-                        data_to_convert = data_to_convert[:to_byte]
-                    if config_object.get('fromByte') is not None:
-                        from_byte = config_object.get('fromByte')
-                        data_to_convert = data_to_convert[from_byte:]
+                    data_to_convert = data    # data for conversion.
+                    if config_object.get('delimiter') is not None:    # Checking some parameter from configuration file.
+                        index = config_object.get('position');
+                        data_to_convert = data.split(config_object.get('delimiter').encode('UTF-8'))[index]
+                    # data_to_convert = data
+                    # if config_object.get('untilDelimiter') is not None:
+                    #     data_to_convert = data.split(config_object.get('untilDelimiter').encode('UTF-8'))[0]
+                    # if config_object.get('fromDelimiter') is not None:
+                    #     data_to_convert = data.split(config_object.get('fromDelimiter').encode('UTF-8'))[1]
+                    # if config_object.get('toByte') is not None:
+                    #     to_byte = config_object.get('toByte')
+                    #     if to_byte == -1:
+                    #         to_byte = len(data) - 1
+                    #     data_to_convert = data_to_convert[:to_byte]
+                    # if config_object.get('fromByte') is not None:
+                    #     from_byte = config_object.get('fromByte')
+                    #     data_to_convert = data_to_convert[from_byte:]
                     converted_data = {config_object['key']: data_to_convert.decode('UTF-8')}
                     self.result_dict[key].append(converted_data)
         log.debug("Converted data: %s", self.result_dict)

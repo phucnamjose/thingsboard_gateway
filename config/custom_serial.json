@@ -9,17 +9,30 @@
       "converter": "CustomSerialUplinkConverter",
       "telemetry": [
         {
-          "type": "byte",
+          "type": "float",
+          "key": "temperature",
+          "delimiter": " ",
+          "index": 0
+        },
+        {
+          "type": "float",
           "key": "humidity",
-          "untilDelimiter": "\r"
+          "delimiter": " ",
+          "index": 1
+        },
+        {
+          "type": "int",
+          "key": "timeStamp",
+          "delimiter": " ",
+          "index": 2
         }
       ],
       "attributes": [
         {
-          "key": "SerialNumber",
-          "type": "string",
-          "fromByte": 4,
-          "toByte": -1
+          "key": "Battery",
+          "type": "int",
+          "delimiter": " ",
+          "index": 3
         }
       ],
       "attributeUpdates": [
