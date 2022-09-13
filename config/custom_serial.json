@@ -22,6 +22,12 @@
         }
       ],
       "attributes": [
+        {
+          "type": "string",
+          "key": "name",
+          "delimiter": " ",
+          "index": 2
+        }
       ],
       "attributeUpdates": [
         {
