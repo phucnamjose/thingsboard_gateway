@@ -19,21 +19,9 @@
           "key": "humidity",
           "delimiter": " ",
           "index": 1
-        },
-        {
-          "type": "int",
-          "key": "timeStamp",
-          "delimiter": " ",
-          "index": 2
         }
       ],
       "attributes": [
-        {
-          "key": "Battery",
-          "type": "int",
-          "delimiter": " ",
-          "index": 3
-        }
       ],
       "attributeUpdates": [
         {
