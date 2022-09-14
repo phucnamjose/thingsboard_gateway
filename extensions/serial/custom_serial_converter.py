@@ -52,7 +52,7 @@ class CustomSerialUplinkConverter(Converter):
                     #converted_data = {config_object['key']: data_to_convert.decode('UTF-8')}
                     converted_data = {config_object['key']: data_to_convert}
                     self.result_dict[key].append(converted_data)
-                timestamp_data = {'ts': str(int(datetime.now().timestamp()))}
+                timestamp_data = {'ts': str(int(datetime.now().timestamp())).encode()}
                 self.result_dict[key].append(timestamp_data)
         log.debug("Converted data: %s", self.result_dict)
         return self.result_dict
