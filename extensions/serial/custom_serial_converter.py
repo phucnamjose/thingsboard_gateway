@@ -13,7 +13,6 @@
 #     limitations under the License.
 
 from thingsboard_gateway.connectors.converter import Converter, log
-from datetime import datetime
 
 class CustomSerialUplinkConverter(Converter):
     def __init__(self, config):
@@ -52,8 +51,5 @@ class CustomSerialUplinkConverter(Converter):
                     #converted_data = {config_object['key']: data_to_convert.decode('UTF-8')}
                     converted_data = {config_object['key']: data_to_convert}
                     self.result_dict[key].append(converted_data)
-                if key is 'telemetry':
-                    timestamp_data = {'ts': str(int(datetime.now().timestamp())).encode('ascii')}
-                    self.result_dict[key].append(timestamp_data)
         log.debug("Converted data: %s", self.result_dict)
         return self.result_dict
