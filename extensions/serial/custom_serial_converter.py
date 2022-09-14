@@ -35,7 +35,7 @@ class CustomSerialUplinkConverter(Converter):
                     if config_object.get('delimiter') is not None:    # Checking some parameter from configuration file.
                         index = config_object['index']
                     #    data_to_convert = data.split(config_object.get('delimiter').encode('UTF-8'))[index]
-                        data_to_convert = data.split(config_object.get('delimiter'))[index]
+                        data_to_convert = data.split(config_object.get('delimiter').encode('ascii'))[index]
                     # data_to_convert = data
                     # if config_object.get('untilDelimiter') is not None:
                     #     data_to_convert = data.split(config_object.get('untilDelimiter').encode('UTF-8'))[0]
